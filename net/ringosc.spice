@@ -1,0 +1,10 @@
+* Ring oscillator circuit
+
+.subckt ringosc out vdd gnd
+
+* YOUR IMPLEMENTATION HERE
+X0 out gnd gnd vdd vdd net0 inv1
+X1 net0 gnd gnd vdd vdd net1 inv1
+X2 net1 gnd gnd vdd vdd out inv1
+
+.ends
