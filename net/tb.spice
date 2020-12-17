@@ -2,9 +2,26 @@
 
 * YOUR IMPLEMENTATION HERE
 X0 ro_out vddi 0 ringosc
-X1 ro_out 0 0 vddo vddo out
+X1 ro_out 0 0 vddo vddo out inv1
 
-V0 vddi 0 0.65
-V1 vddo 0 0.80
+V0 vddi 0 1.50
+V1 vddo 0 1.80
 
-.nodeset V(ro_out)=0
+* NO NEED TO MODIFY THE REST OF THIS FILE
+
+* initialize ro_out to 0 to prevent the oscillator
+* from starting the equilibrium point
+.ic V(ro_out)=0
+
+* specify simulation duration
+.tran 10e-12 2e-09 0e-00 uic
+
+* run simulation and save waveforms
+.control
+save all
+run
+write
+.endc
+
+* end of the testbench
+.end
