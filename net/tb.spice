@@ -18,9 +18,15 @@ V1 vddo 0 1.80
 
 * run simulation and save waveforms
 .control
-save all
-run
-write
+let pwr=0.1
+while pwr < 1.81
+  set pwr = $&pwr
+  alter V0 dc pwr
+  save out
+  run
+  write sim_{$pwr}.raw out
+  let pwr = pwr + 0.1
+end
 .endc
 
 * end of the testbench
