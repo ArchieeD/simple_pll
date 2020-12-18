@@ -159,19 +159,13 @@ rect -101 -48 314 -17
 << labels >>
 flabel locali s 164 289 198 323 0 FreeSans 340 0 0 0 Y
 port 1 nsew
-flabel locali s 164 221 198 255 0 FreeSans 340 0 0 0 Y
-port 1 nsew
 flabel locali s 72 221 106 255 0 FreeSans 340 0 0 0 A
 port 2 nsew
-flabel pwell s 29 -17 63 17 0 FreeSans 200 0 0 0 VNB
-port 4 nsew
 flabel metal1 s 29 -17 63 17 0 FreeSans 200 0 0 0 VGND
-port 5 nsew
-flabel metal1 s 29 527 63 561 0 FreeSans 200 0 0 0 VPWR
-port 6 nsew
-rlabel comment s 0 0 0 0 4 inv_1
-flabel nwell s 29 527 63 561 0 FreeSans 200 0 0 0 VPB
 port 3 nsew
+flabel metal1 s 29 527 63 561 0 FreeSans 200 0 0 0 VPWR
+port 4 nsew
+rlabel comment s 0 0 0 0 4 inv_1
 << properties >>
 string FIXED_BBOX 0 0 276 544
 string path 0.000 0.000 1.380 0.000 
