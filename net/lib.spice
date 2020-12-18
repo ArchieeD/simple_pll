@@ -1,0 +1,2 @@
+* Include SKY130 libraries
+.lib "/home/steven/Code/skywater-pdk/libraries/sky130_fd_pr/latest/models/sky130.lib.spice" tt
