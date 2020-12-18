@@ -7,26 +7,19 @@ X1 ro_out 0 0 vddo vddo out inv1
 V0 vddi 0 1.50
 V1 vddo 0 1.80
 
-* NO NEED TO MODIFY THE REST OF THIS FILE
-
 * initialize ro_out to 0 to prevent the oscillator
 * from starting the equilibrium point
 .ic V(ro_out)=0
 
-* specify simulation duration
+* specify simulation duration, with "uic"
+* indicating "use initial conditions"
 .tran 10e-12 2e-09 0e-00 uic
 
-* run simulation and save waveforms
+* ngspice control commands
 .control
-let pwr=0.1
-while pwr < 1.81
-  set pwr = $&pwr
-  alter V0 dc pwr
-  save out
-  run
-  write sim_{$pwr}.raw out
-  let pwr = pwr + 0.1
-end
+save all
+run
+write sim.raw all
 .endc
 
 * end of the testbench
