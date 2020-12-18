@@ -5,7 +5,6 @@ echo ".lib \"$SKYWATER/libraries/sky130_fd_pr/latest/models/sky130.lib.spice\" t
 
 cat sim_pre_layout/pre.spice ../net/inv1.spice ../net/ringosc.spice ../net/tb.spice > sim_pre_layout/sim.spice
 
-#ngspice -r sim_pre_layout/sim.raw -b sim_pre_layout/sim.spice
 cd sim_pre_layout
-ngspice -b sim.spice
+ngspice -b -r sim.raw sim.spice
 cd ..

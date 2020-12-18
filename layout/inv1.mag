@@ -157,13 +157,13 @@ rect 155 -17 213 17
 rect 247 -17 314 17
 rect -101 -48 314 -17
 << labels >>
-flabel locali s 164 289 198 323 0 FreeSans 340 0 0 0 Y
-port 1 nsew
 flabel locali s 72 221 106 255 0 FreeSans 340 0 0 0 A
+port 1 nsew
+flabel locali s 164 289 198 323 0 FreeSans 340 0 0 0 Y
 port 2 nsew
-flabel metal1 s 29 -17 63 17 0 FreeSans 200 0 0 0 VGND
-port 3 nsew
 flabel metal1 s 29 527 63 561 0 FreeSans 200 0 0 0 VPWR
+port 3 nsew
+flabel metal1 s 29 -17 63 17 0 FreeSans 200 0 0 0 VGND
 port 4 nsew
 rlabel comment s 0 0 0 0 4 inv_1
 << properties >>

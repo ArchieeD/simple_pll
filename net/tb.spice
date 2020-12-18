@@ -2,7 +2,7 @@
 
 * YOUR IMPLEMENTATION HERE
 X0 ro_out vddi 0 ringosc
-X1 ro_out 0 0 vddo vddo out inv1
+X1 ro_out out vddo 0 inv1
 
 V0 vddi 0 1.50
 V1 vddo 0 1.80
@@ -19,7 +19,7 @@ V1 vddo 0 1.80
 .control
 save all
 run
-write sim.raw all
+write
 .endc
 
 * end of the testbench
