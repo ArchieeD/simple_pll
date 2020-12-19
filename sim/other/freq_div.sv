@@ -3,7 +3,7 @@
 `timescale 1s/1fs
 
 module freq_div #(
-    parameter integer N=30
+    parameter integer N=10
 ) (
     input wire logic in,
     output var logic out=1'b0

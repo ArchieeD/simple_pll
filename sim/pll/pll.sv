@@ -6,8 +6,8 @@ module pll #(
     parameter real ki_ctrl=0,
     parameter real kp_ctrl=0,
     parameter real init_ctrl=0,
-    parameter real vdd=0.8,
-    parameter integer freq_div_n=30,
+    parameter real vdd=1.8,
+    parameter integer freq_div_n=10,
     parameter real filter_tau=15.9e-9
 ) (
     input clkin,

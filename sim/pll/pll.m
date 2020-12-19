@@ -1,13 +1,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % YOUR PARAMETERS HERE
-Kvco = 2*pi*6.6e9; % in rad/s/V, not Hz/V!
+Kvco = 2*pi*3.4e9; % in rad/s/V, not Hz/V!
 Ki = 0;
 Kp = 0;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % fixed parameters
-Vdd = 0.8;
-Ndiv = 30;
+Vdd = 1.8;
+Ndiv = 10;
 tau_filt = 15.9e-9;
 
 % form the loop function

@@ -1,11 +1,6 @@
 * Testbench for a ring oscillator
 
 * YOUR IMPLEMENTATION HERE
-X0 ro_out vddi 0 ringosc
-X1 ro_out out vddo 0 inv1
-
-V0 vddi 0 1.50
-V1 vddo 0 1.80
 
 * initialize ro_out to 0 to prevent the oscillator
 * from starting the equilibrium point
@@ -13,7 +8,7 @@ V1 vddo 0 1.80
 
 * specify simulation duration, with "uic"
 * indicating "use initial conditions"
-.tran 10e-12 2e-09 0e-00 uic
+.tran 10e-12 25e-09 0e-00 uic
 
 * ngspice control commands
 .control
