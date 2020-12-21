@@ -1,1 +1,1 @@
-module load base xcelium matlab/caddy
+module load base magic netgen xcelium matlab/caddy

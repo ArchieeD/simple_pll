@@ -41,39 +41,28 @@ module ringosc_tb;
         $fclose(fid);
 
         // spot-check at a few specific input voltages
-        vdd = 0.0;
+        for (vdd=0.0; vdd<1.21; vdd=vdd+0.1) begin
+            #(25ns);
+            check_freq_is(0.5e9);
+        end
+        vdd = 1.3;
         #(25ns);
-        check_freq_is(1.60e9);
-        vdd = 0.1;
+        check_freq_is(0.52e9);
+        vdd = 1.4;
         #(25ns);
-        check_freq_is(1.60e9);
-        vdd = 0.2;
+        check_freq_is(0.86e9);
+        vdd = 1.5;
         #(25ns);
-        check_freq_is(1.60e9);
-        vdd = 0.3;
+        check_freq_is(1.20e9);
+        vdd = 1.6;
         #(25ns);
-        check_freq_is(1.60e9);
-        vdd = 0.4;
+        check_freq_is(1.54e9);
+        vdd = 1.7;
         #(25ns);
-        check_freq_is(1.60e9);
-        vdd = 0.5;
+        check_freq_is(1.88e9);
+        vdd = 1.8;
         #(25ns);
         check_freq_is(2.00e9);
-        vdd = 0.6;
-        #(25ns);
-        check_freq_is(2.66e9);
-        vdd = 0.7;
-        #(25ns);
-        check_freq_is(3.32e9);
-        vdd = 0.8;
-        #(25ns);
-        check_freq_is(3.98e9);
-        vdd = 0.9;
-        #(25ns);
-        check_freq_is(4.00e9);
-        vdd = 1.0;
-        #(25ns);
-        check_freq_is(4.00e9);
     
         // end simulation
         $display("All tests passed.");
