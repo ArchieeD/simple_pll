@@ -37,13 +37,36 @@ module pll_tb;
         $display("Frequency of clkout at t=%0.1e: %0.10f GHz", $realtime, freq/1e9);
     end
 
+    task check_freq(input real expct, input real meas, input real tol);
+        if (((expct-tol) <= meas) && (meas <= (expct+tol))) begin
+            // do nothing
+        end else begin
+            $display("ERROR: frequency out of spec (%0.3f GHz)", meas*1.0e-9);
+            $fatal;
+        end
+    endtask
+
+    logic check_en = 1'b0;
+    always @(freq or check_en) begin
+        if (check_en) begin
+            check_freq(1e9, freq, 1e6);
+        end
+    end
+
     initial begin
         // setup
         $shm_open("pll.shm");
         $shm_probe("AS");
 
-        // run simulation
+        // let waveform settle
         #(5e-6*1s);
+
+        // check that it has settled
+        check_en = 1'b1;
+        #(5e-6*1s);
+        
+        // end simulation
+        $display("All tests passed.");
         $finish;
     end
 endmodule

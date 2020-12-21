@@ -1,4 +1,4 @@
-# SimVision Command Script (Mon Feb 17 07:37:49 PM PST 2020)
+# SimVision Command Script (Mon Dec 21 01:28:42 PM PST 2020)
 #
 # Version 19.03.s003
 #
@@ -13,14 +13,14 @@
 # Preferences
 #
 preferences set plugin-enable-svdatabrowser-new 1
-preferences set toolbar-Standard-WaveWindow {
-  usual
-  position -pos 1
-}
 preferences set plugin-enable-groupscope 0
 preferences set plugin-enable-interleaveandcompare 0
 preferences set plugin-enable-waveformfrequencyplot 0
 preferences set whats-new-dont-show-at-startup 1
+preferences set toolbar-Standard-WaveWindow {
+  usual
+  position -pos 1
+}
 
 #
 # Databases
@@ -46,8 +46,8 @@ mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor or
 #
 # Waveform windows
 #
-if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1311x660+48+62}] != ""} {
-    window geometry "Waveform 1" 1311x660+48+62
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1280x660+48+62}] != ""} {
+    window geometry "Waveform 1" 1280x660+48+62
 }
 window target "Waveform 1" on
 waveform using {Waveform 1}
@@ -64,17 +64,17 @@ set id [waveform add -signals [subst  {
 	{$dbNames(realName1)::[format {pll_tb.freq}]}
 	} ]]
 waveform format $id -trace analogSampleAndHold
-waveform axis range $id -for default -min 2826359761.6812601 -max 3027459053.6176052 -scale linear
+waveform axis range $id -for default -min 950830645.65200341 -max 1004312517.9521296 -scale linear
 set id [waveform add -signals [subst  {
 	{$dbNames(realName1)::[format {pll_tb.pll_i.err}]}
 	} ]]
 waveform format $id -trace analogSampleAndHold
-waveform axis range $id -for default -min -0.35434397869389256 -max 0.3938705407913291 -scale linear
+waveform axis range $id -for default -min -0.80500097686338379 -max 0.87392229772308416 -scale linear
 set id [waveform add -signals [subst  {
 	{$dbNames(realName1)::[format {pll_tb.pll_i.vdd_ring}]}
 	} ]]
 waveform format $id -trace analogSampleAndHold
-waveform axis range $id -for default -min 0.62520570460062741 -max 0.65567574783800997 -scale linear
+waveform axis range $id -for default -min 1.4267150646064028 -max 1.4424446368173389 -scale linear
 set id [waveform add -signals [subst  {
 	{$dbNames(realName1)::[format {pll_tb.pll_i.filter_in}]}
 	} ]]
@@ -90,7 +90,7 @@ set id [waveform add -signals [subst  {
 	{$dbNames(realName1)::[format {pll_tb.clkout}]}
 	} ]]
 
-waveform xview limits 0 5000ns
+waveform xview limits 111.940296ns 10000ns
 
 #
 # Waveform Window Links
