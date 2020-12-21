@@ -34,34 +34,34 @@ module ringosc_tb;
         // measure frequency vs vdd and write results to a file
         fid = $fopen("ringosc.csv", "w");
         $fwrite(fid, "VDD (V), Frequency (GHz)\n");
-        for (vdd=0.0; vdd<1.001; vdd=vdd+10e-3) begin
-            #(25ns);
+        for (vdd=0.0; vdd<1.801; vdd=vdd+10e-3) begin
+            #(100ns);
             $fwrite(fid, "%0.10f,%0.10f\n", vdd, freq/1e9);
         end
         $fclose(fid);
 
         // spot-check at a few specific input voltages
         for (vdd=0.0; vdd<1.21; vdd=vdd+0.1) begin
-            #(25ns);
+            #(100ns);
             check_freq_is(0.5e9);
         end
         vdd = 1.3;
-        #(25ns);
+        #(100ns);
         check_freq_is(0.52e9);
         vdd = 1.4;
-        #(25ns);
+        #(100ns);
         check_freq_is(0.86e9);
         vdd = 1.5;
-        #(25ns);
+        #(100ns);
         check_freq_is(1.20e9);
         vdd = 1.6;
-        #(25ns);
+        #(100ns);
         check_freq_is(1.54e9);
         vdd = 1.7;
-        #(25ns);
+        #(100ns);
         check_freq_is(1.88e9);
         vdd = 1.8;
-        #(25ns);
+        #(100ns);
         check_freq_is(2.00e9);
     
         // end simulation

@@ -1,6 +1,11 @@
-# SimVision Command Script (Tue Feb 25 09:15:07 PM PST 2020)
+# SimVision Command Script (Mon Dec 21 12:27:16 PM PST 2020)
 #
 # Version 19.03.s003
+#
+# You can restore this configuration with:
+#
+#     simvision -input ringosc.svcf
+#  or simvision -input ringosc.svcf database1 database2 ...
 #
 
 
@@ -8,14 +13,14 @@
 # Preferences
 #
 preferences set plugin-enable-svdatabrowser-new 1
-preferences set toolbar-Standard-WaveWindow {
-  usual
-  position -pos 1
-}
 preferences set plugin-enable-groupscope 0
 preferences set plugin-enable-interleaveandcompare 0
 preferences set plugin-enable-waveformfrequencyplot 0
 preferences set whats-new-dont-show-at-startup 1
+preferences set toolbar-Standard-WaveWindow {
+  usual
+  position -pos 1
+}
 
 #
 # Databases
@@ -41,8 +46,8 @@ mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor or
 #
 # Waveform windows
 #
-if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1311x563+48+62}] != ""} {
-    window geometry "Waveform 1" 1311x563+48+62
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1280x563+48+62}] != ""} {
+    window geometry "Waveform 1" 1280x563+48+62
 }
 window target "Waveform 1" on
 waveform using {Waveform 1}
@@ -59,17 +64,17 @@ set id [waveform add -signals [subst  {
 	{$dbNames(realName1)::[format {ringosc_tb.freq}]}
 	} ]]
 waveform format $id -trace analogSampleAndHold
-waveform axis range $id -for default -min 0 -max 4000000000.0047817 -scale linear
+waveform axis range $id -for default -min 499999999.99975067 -max 2000000000.0091672 -scale linear
 set id [waveform add -signals [subst  {
 	{$dbNames(realName1)::[format {ringosc_tb.vdd}]}
 	} ]]
 waveform format $id -trace analogSampleAndHold
-waveform axis range $id -for default -min 0 -max 1.0000000000000007 -scale linear
+waveform axis range $id -for default -min 0 -max 1.8000000000000014 -scale linear
 set id [waveform add -signals [subst  {
 	{$dbNames(realName1)::[format {ringosc_tb.out}]}
 	} ]]
 
-waveform xview limits 0 2800ns
+waveform xview limits 11753.731367ns 20000ns
 
 #
 # Waveform Window Links
