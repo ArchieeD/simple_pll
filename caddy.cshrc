@@ -8,5 +8,5 @@ setenv PDKPATH /afs/ir.stanford.edu/class/ee272/PDKS/sky130A
 
 # add ngspice and gwave to the path
 # ref: https://unix.stackexchange.com/a/77666
-set -f path=("/cad/ngspice/27/bin" $path:q)
-set -f path=("/cad/gwave/bin" $path:q)
+set -f path=("/cad/ngspice/33/bin" $path:q)
+set -f path=("/cad/gaw3/bin" $path:q)

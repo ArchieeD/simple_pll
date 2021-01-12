@@ -15,7 +15,7 @@ pathadd() {
 }
 
 # add ngspice to path
-pathadd /cad/ngspice/27/bin
+pathadd /cad/ngspice/33/bin
 
-# add gwave to path
-pathadd /cad/gwave/bin
+# add gaw to path
+pathadd /cad/gaw3/bin
