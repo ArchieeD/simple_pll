@@ -1,0 +1,52 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % YOUR PARAMETERS HERE
+% Kvco = 2*pi*3.4e9; % in rad/s/V, not Hz/V!
+% Kp = 9.355e-3;
+% Ki = -26.48e3;
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% % fixed parameters
+% Vdd = 1.8;
+% Ndiv = 10;
+% tau_filt = 15.9e-9;
+% 
+% % form the loop function
+% s = tf('s');
+% LF = Kvco * (1/Ndiv) * (1/s) * (Vdd/pi) * (1/(1+tau_filt*s)) * (Kp + (Ki/s));
+% 
+% % plot the phase margin
+% margin(LF);
+
+clc; clear; close all;
+syms Kp Ki wc;  % Define symbolic variables
+
+% Given parameters
+Kvco = 2 * pi * 3.4e9;  % rad/s/V
+Vdd = 1.8;
+Ndiv = 10;
+tau_filt = 15.9e-9;
+
+% Define equations based on magnitude and phase margin conditions
+eq1 = (Kvco / Ndiv) * (Vdd / pi) * sqrt(Kp^2 + (Ki/wc)^2) / (wc * sqrt(1 + (wc * tau_filt)^2)) == 1;
+eq2 = atan(Ki / (Kp * wc)) - 90 - atan(wc * tau_filt) == -60 * (pi/180); % Convert degrees to radians
+
+% Assume a crossover frequency wc around 1 MHz
+wc_guess = 1e6 * 2 * pi; % Convert MHz to rad/s
+
+% Solve for Kp and Ki numerically
+sol = vpasolve([subs(eq1, wc, wc_guess), subs(eq2, wc, wc_guess)], [Kp, Ki]);
+Kp_val = double(sol.Kp);
+Ki_val = double(sol.Ki);
+
+% Display results
+fprintf('Solved Kp: %.5f\n', Kp_val);
+fprintf('Solved Ki: %.5f\n', Ki_val);
+fprintf('Assumed gain crossover frequency: %.2f MHz\n', wc_guess / (2 * pi * 1e6));
+
+% Define L(s) using the solved values
+s = tf('s');
+LF = Kvco * (1/Ndiv) * (1/s) * (Vdd/pi) * (1/(1+tau_filt*s)) * (Kp_val + (Ki/s));
+
+% Plot phase margin
+margin(LF);
+

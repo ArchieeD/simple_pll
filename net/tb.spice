@@ -1,6 +1,9 @@
 * Testbench for a ring oscillator
 
-* YOUR IMPLEMENTATION HERE
+v0 v0 0 1.5
+v1 v1 0 1.8
+X0 v0 0 ro_out ringosc_flat
+X1 ro_out out v1 0 inv1
 
 * initialize ro_out to 0 to prevent the oscillator
 * from starting the equilibrium point
@@ -8,13 +11,20 @@
 
 * specify simulation duration, with "uic"
 * indicating "use initial conditions"
-.tran 10e-12 25e-09 0e-00 uic
+.tran 10e-12 100e-09 0e-00 uic
+*.meas tran t_osc TRIG v(out) val=0.9 rise=2 TARG v(out) val=0.9 rise=3
 
 * ngspice control commands
 .control
-save all
+let pwr=0.1
+while pwr < 1.81
+set pwr = $&pwr
+alter V0 dc pwr
+save out
 run
-write
+write sim_{$pwr}.raw out
+let pwr = pwr + 0.1
+end
 .endc
 
 * end of the testbench

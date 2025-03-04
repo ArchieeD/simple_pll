@@ -1,0 +1,27 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1741065093
+<< locali >>
+rect 2747 263 2795 289
+rect -238 215 28 263
+rect 2740 215 2926 263
+rect -234 -128 -186 215
+rect 2878 -128 2926 215
+rect -234 -176 2926 -128
+<< metal1 >>
+rect -69 545 -21 593
+rect -65 -10 -17 38
+use inv1  inv1_0 layout
+array 0 6 415 0 0 640
+timestamp 1608267076
+transform 1 0 0 0 1 0
+box -101 -48 314 592
+<< labels >>
+flabel metal1 -69 545 -21 593 1 FreeSans 400 0 0 0 VDD
+port 2 n
+flabel metal1 -65 -10 -17 38 1 FreeSans 400 0 0 0 gnd
+port 3 n
+flabel locali 2747 241 2795 289 1 FreeSans 400 0 0 0 out
+port 1 n
+<< end >>
